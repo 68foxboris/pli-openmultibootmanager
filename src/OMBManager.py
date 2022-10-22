@@ -149,7 +149,7 @@ class OMBManagerKernelModule:
 		self.timer.stop()
 		self.error_message = ''
 		if self.kernel_module == "nfidump":
-			os.system("chmod 755 %s" % loadScript)
+			os.system("chmod 0o755 %s" % loadScript)
 			cmd = 'opkg update && opkg install python-subprocess\n'
 			cmd += "%s dmm_nfidump" % loadScript
 			text = _("Install")
@@ -172,7 +172,7 @@ class OMBManagerKernelModule:
 
 	def alterInstallCallback(self, confirmed):
 		if confirmed:
-			os.system("chmod 755 %s" % loadScript)
+			os.system("chmod 0o755 %s" % loadScript)
 			cmd = "%s %s" % (loadScript, BOX_NAME)
 			text = _("Install")
 			self.session.openWithCallback(self.afterLoadInstall, Console, text, [cmd])

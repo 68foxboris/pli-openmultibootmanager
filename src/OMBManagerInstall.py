@@ -609,7 +609,7 @@ class OMBManagerInstall(Screen):
 			else:
 				self.showError(_("Your STB doesn\'t seem supported"))
 				return False
-			cmd = "chmod 755 " + ubifile
+			cmd = "chmod 0o755 " + ubifile
 			rc = os.system(cmd)
 			cmd = "python " + ubifile + " " + rootfs_path + " -o " + ubi_path
 			rc = os.system(cmd)

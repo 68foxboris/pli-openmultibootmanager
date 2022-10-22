@@ -78,7 +78,7 @@ case $1 in
 			echo >&2 "install-open_multiboot: download failed"
 			exit 1
 		else
-			chmod 755 /tmp/open_multiboot
+			chmod 0o755 /tmp/open_multiboot
 			SIZE="$(du -k "/tmp/open_multiboot" | awk '{ print $1 }')"
 			if [ $SIZE -gt 100 ] ; then 
 				echo >&2 "install-open_multiboot: download failed not bin file"
